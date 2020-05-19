@@ -1,0 +1,11 @@
+{
+  "name": "directoryStage",
+  "version": "1.0.0",
+  "description": "Receives a set of operation commands, and models a directory based on the commands.",
+  "main": "cli.ts",
+  "author": "Chris Dobler",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^3.9.2"
+  }
+}
