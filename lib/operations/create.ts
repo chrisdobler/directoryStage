@@ -10,9 +10,7 @@ export default {
       } else
         current.children = {
           ...current.children,
-          [opChain[i]]: new Directory({
-            parent: current,
-          }),
+          [opChain[i]]: new Directory({}),
         };
     }
     return { success: true };

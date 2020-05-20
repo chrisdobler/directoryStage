@@ -14,7 +14,7 @@ const operations = {
   DELETE,
 };
 
-export default (command: string, root) => {
+export default (command: string, root, options) => {
   const [inOp, inDirs, outTo] = command.split(' ');
 
   if (!inOp || !operations[inOp])
@@ -22,5 +22,5 @@ export default (command: string, root) => {
 
   const opChain = inDirs && inDirs.split('/');
 
-  return operations[inOp].run({ root, opChain, outTo, inDirs });
+  return operations[inOp].run({ root, opChain, outTo, inDirs, options });
 };

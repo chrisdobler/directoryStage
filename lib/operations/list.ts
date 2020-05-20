@@ -1,26 +1,29 @@
 const list = {
-  run: ({ root: current, message = '' }) => {
+  run: ({ root: current, message = '', options }) => {
+    const { listOutput } = options || {};
     let keys = null;
     if ((keys = Object.keys(current.children)))
       if (keys.length) {
         for (let i = 0; i < keys.length; i += 1) {
-          // wanted to pass final list into output but was having trouble with fromatting.
-
-          message = message + '\n' + keys[i];
-          // console.log(keys[i]);
+          listOutput
+            ? console.log(keys[i])
+            : (message = message + '\n' + keys[i]);
           if (current.children[keys[i]].children) {
-            // console.group();
-
-            message =
-              message +
+            if (listOutput) {
+              console.group();
               list.run({
                 root: current.children[keys[i]],
-              }).message;
-            // operations['LIST'].run({
-            //   root: current.children[keys[i]],
-            //   message,
-            // });
-            // console.groupEnd();
+                message,
+                options,
+              });
+              console.groupEnd();
+            } else
+              message =
+                message +
+                list.run({
+                  root: current.children[keys[i]],
+                  options,
+                }).message;
           }
         }
       }

@@ -10,6 +10,7 @@
   "author": "Chris Dobler",
   "license": "MIT",
   "dependencies": {
+    "stdio": "^2.1.1",
     "typescript": "^3.9.2"
   },
   "devDependencies": {
