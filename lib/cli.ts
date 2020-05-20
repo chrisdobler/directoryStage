@@ -1,19 +1,19 @@
 import * as readline from 'readline';
 
-import evaluate from './main';
+import { App } from './main';
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const app = new App();
 
-const commandLoop = (async () => {
-  const answer: string = await new Promise((res, rej) =>
-    rl.question('C:\\> ', (answer: string) => {
-      res(answer);
-      rl.close();
-    })
-  );
+const commandLoop = () => {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
 
-  evaluate(answer, commandLoop);
-})();
+  rl.question('C:\\> ', (answer: string) => {
+    rl.close();
+    app.execute(answer, commandLoop);
+  });
+};
+
+commandLoop();

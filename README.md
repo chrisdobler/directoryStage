@@ -14,7 +14,7 @@ To star the cli:
 To get an idea of what kind of operations you can perform, try running the specs:
 
 ```
-  yarn spec
+  yarn spec/cli
 ```
 
 The specs are organized in batches in the sample commands folder

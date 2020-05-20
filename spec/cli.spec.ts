@@ -1,4 +1,4 @@
-it('A batch list of created directories', () => {
+xit('A batch list of created directories', () => {
   expect(output).toEqual(`
   fruits
   apples
@@ -7,7 +7,7 @@ it('A batch list of created directories', () => {
   `);
 });
 
-it('A batch of mixed moved and created directories', () => {
+xit('A batch of mixed moved and created directories', () => {
   expect(output).toEqual(`
   foods
   fruits
@@ -19,7 +19,7 @@ it('A batch of mixed moved and created directories', () => {
   `);
 });
 
-it('A batch of delete operations', () => {
+xit('A batch of delete operations', () => {
   expect(output).toEqual(`
   foods
   fruits
