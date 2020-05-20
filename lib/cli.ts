@@ -1,7 +1,7 @@
 import * as readline from 'readline';
-
 import { App } from './main';
 import stdio from 'stdio';
+import * as fs from 'fs';
 
 const app = new App();
 
@@ -21,13 +21,13 @@ const ops = stdio.getopt({
   script: {
     key: 'S',
     required: false,
-    description: 'If you would like to init with a scripted sequence inline.',
+    description: 'If you would like to init with a scripted sequence.',
   },
 });
 
 // the user wants to use a script
 if (ops.script) {
-  let script = ops.args[0];
+  let script = fs.readFileSync(ops.args[0], { encoding: 'utf8', flag: 'r' });
   do {
     const active = script.substring(
       0,
