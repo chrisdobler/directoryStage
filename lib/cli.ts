@@ -27,18 +27,17 @@ const ops = stdio.getopt({
 
 // the user wants to use a script
 if (ops.script) {
-  let script = fs.readFileSync(ops.args[0], { encoding: 'utf8', flag: 'r' });
+  let script = fs
+    .readFileSync(ops.args[0])
+    .toString()
+    .split(String.fromCharCode(10));
   do {
-    const active = script.substring(
-      0,
-      script.indexOf('\\n') !== -1 ? script.indexOf('\\n') : script.length
-    );
-    console.log(active);
-    script = script.substring(active.length + 2, script.length);
-    app.execute(active, null, {
+    console.log(script[0]);
+    app.execute(script[0], null, {
       listOutput: true,
     });
-  } while (script.length);
+    script.shift();
+  } while (script.length > 0);
 }
 
 commandLoop();
