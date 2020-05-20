@@ -1,3 +1,5 @@
+import cli from '../lib/cli';
+
 xit('A batch list of created directories', () => {
   expect(output).toEqual(`
   fruits
