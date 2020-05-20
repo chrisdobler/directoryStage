@@ -1,6 +1,8 @@
 const list = {
   run: ({ root: current, message = '', options }) => {
+    // I don't like outputing console here because it is not so testable, but the tab group formatting in node was quite tricky.
     const { listOutput } = options || {};
+
     let keys = null;
     if ((keys = Object.keys(current.children)).sort())
       if (keys.length) {
