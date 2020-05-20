@@ -11,6 +11,10 @@ it('can create a directory', () => {
 
 it('can put a directory inside the first directory', () => {
   interpret('CREATE grains/squash', root);
+  expect(Object.keys(root.children['grains'].children).length).toBeGreaterThan(
+    0
+  );
+  expect(Object.keys(root.children['grains'].children)[0]).toEqual('squash');
 });
 
 it('can list a directory', () => {
