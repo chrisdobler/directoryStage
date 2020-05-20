@@ -18,6 +18,9 @@ it('can put a directory inside the first directory', () => {
 });
 
 it('can list a directory', () => {
+  interpret('CREATE fruits', root);
+  interpret('CREATE fruits/apples', root);
+  interpret('CREATE fruits/apples/fuji', root);
   interpret('CREATE vegetables', root);
   console.log(root);
   console.log(interpret('LIST', root).message);
