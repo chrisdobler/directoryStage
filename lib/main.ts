@@ -9,7 +9,8 @@ class App {
   }
 
   execute(command: string, next: () => void) {
-    interpret(command);
+    const response = interpret(command, root);
+    if (response.message) console.info(response.message);
     next();
   }
 }

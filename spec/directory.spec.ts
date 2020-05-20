@@ -4,7 +4,7 @@ const root = new Directory();
 
 describe('a root directory', () => {
   it('should have empty children', () => {
-    expect(root.children).toEqual([]);
+    expect(root.children).toEqual({});
   });
   it('should not have a parent', () => {
     expect(root.parent).toBeNull();

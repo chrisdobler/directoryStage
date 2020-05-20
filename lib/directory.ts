@@ -11,6 +11,6 @@ export class Directory implements DirectoryInterface {
 
   constructor({ parent, children }: DirectoryInterface = {}) {
     this.parent = parent || root || null;
-    this.children = children || [];
+    this.children = children || {};
   }
 }
